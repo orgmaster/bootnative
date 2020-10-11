@@ -1,7 +1,7 @@
 function styleParser(style:string, styles:{[key:string]:any}){
     const arr = style.split(' ');
-    let result:{[key:string]:any} = {};
-
+    let box:{[key:string]:any} = {};
+    let result:object = {};
     for (let i = 0; i < arr.length; i++) {
         let custom = arr[i].split('-');
 
@@ -11,15 +11,22 @@ function styleParser(style:string, styles:{[key:string]:any}){
             let func = styles[fun];
             if(Object.keys(styles).includes(fun)){
                 while(custom.length){
-                    console.log(func);
                     func = func.bind(null, custom.shift());
-                    console.log(func);
                 }
-                result[fun] = func();
+                box[fun] = func();
             }
         }
 
     }
+    let boxKeys = Object.keys(box);
+
+    for (let i = 0; i < boxKeys.length; i++) {
+        result = {
+            ...result,
+            ...box[boxKeys[i]]
+        };
+    }
+
     return result;
 }
 

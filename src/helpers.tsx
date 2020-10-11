@@ -19,7 +19,7 @@ export default function(customVars:object) : object{
         pb: (scale:string = '1') => {
             validateScale(scale);
             return {
-                paddingButtom: parseInt(scale) * spacing
+                paddingBottom: parseInt(scale) * spacing
             }
         },
         pt: (scale:string = '1') => {
@@ -43,7 +43,7 @@ export default function(customVars:object) : object{
         pr: (scale:string = '1') => {
             validateScale(scale);
             return {
-                paddingLeft: scalar(scale)
+                paddingRight: scalar(scale)
             }
         },
         px: (scale:string = '1') => {
@@ -57,7 +57,7 @@ export default function(customVars:object) : object{
         mb: (scale:string = '1') => {
             validateScale(scale);
             return {
-                marginButtom: parseInt(scale) * spacing
+                marginBottom: parseInt(scale) * spacing
             }
         },
         mt: (scale:string = '1') => {
@@ -81,7 +81,7 @@ export default function(customVars:object) : object{
         mr: (scale:string = '1') => {
             validateScale(scale);
             return {
-                marginLeft: scalar(scale)
+                marginRight: scalar(scale)
             }
         },
         mx: (scale:string = '1') => {
