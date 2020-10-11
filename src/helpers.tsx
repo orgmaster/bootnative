@@ -1,7 +1,7 @@
 import useCustomVars from './core/useCustomVars';
 
 function validateScale(scale:string){
-    if(parseInt(scale) < 1) throw new Error('The min scale is: 1');
+    if(scale != 'auto' && parseInt(scale) < 1) throw new Error('The min scale is: 1');
 }
 
 
@@ -10,7 +10,7 @@ export default function(customVars:object) : object{
 
 
     function scalar(scale:string){
-        return spacing * parseInt(scale);
+        return scale == 'auto' ? scale : spacing * parseInt(scale);
     }
 
     return {
@@ -19,13 +19,13 @@ export default function(customVars:object) : object{
         p: (scale:string = '1') => {
             validateScale(scale);
             return {
-                padding: parseInt(scale) * spacing
+                padding: scalar(scale)
             }
         },
         pb: (scale:string = '1') => {
             validateScale(scale);
             return {
-                paddingBottom: parseInt(scale) * spacing
+                paddingBottom: scalar(scale)
             }
         },
         pt: (scale:string = '1') => {
@@ -63,13 +63,13 @@ export default function(customVars:object) : object{
         m: (scale:string = '1') => {
             validateScale(scale);
             return {
-                margin: parseInt(scale) * spacing
+                margin: scalar(scale)
             }
         },
         mb: (scale:string = '1') => {
             validateScale(scale);
             return {
-                marginBottom: parseInt(scale) * spacing
+                marginBottom: scalar(scale)
             }
         },
         mt: (scale:string = '1') => {
