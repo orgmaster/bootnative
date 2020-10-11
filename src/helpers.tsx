@@ -16,6 +16,12 @@ export default function(customVars:object) : object{
     return {
 
         //padding
+        p: (scale:string = '1') => {
+            validateScale(scale);
+            return {
+                padding: parseInt(scale) * spacing
+            }
+        },
         pb: (scale:string = '1') => {
             validateScale(scale);
             return {
@@ -54,6 +60,12 @@ export default function(customVars:object) : object{
         },
 
         //margin
+        m: (scale:string = '1') => {
+            validateScale(scale);
+            return {
+                margin: parseInt(scale) * spacing
+            }
+        },
         mb: (scale:string = '1') => {
             validateScale(scale);
             return {

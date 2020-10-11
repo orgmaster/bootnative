@@ -6,28 +6,25 @@ Bootnative es muy amigable, ya que está basado en Bootstrap.
 
 ``` javascript
 
-//example
+//Helpers
 
+/*
+Padding: p, pt, pb, pl, pr, py, px. (p-[integer]);
+Margin: m, mt, mb, ml, mr, my, mx. (m-[integer]);
+*/
+
+
+//Ejemplo
 import React from 'react';
 import useBootnative from 'bootnative';
 
 const Foo = () => {
-  const bt = useBootnative();
+  const bn = useBootnative();
   return (
-    <View style={bt('container')}>
-      <View style={bt('row')}>
-        <View style={bt('col-12')}>
-
-          <TouchableOpacity style={bn('btn-primary')}>
-           <Text style={'text'}>Get started</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={bn('btn-#fff')}>
-           <Text style={bn('text-dark')}>View doc</Text>
-          </TouchableOpacity>
-
-        </View>
-      </View>
+    <View>
+      <Text>text 1</Text>
+      <Text style={bn('mb-7 ml-3 pr-3 pt-5')}>text 2</Text>
+      <Text>text 3</Text>
     </View>
   )
 }
