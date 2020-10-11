@@ -1,6 +1,6 @@
 import vars from './vars';
 
-const useCustomVars = (customVars:object):object => {
+const useCustomVars = (customVars:object) => {
     return {
         ...vars,
         ...customVars

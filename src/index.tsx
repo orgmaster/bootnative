@@ -1,10 +1,9 @@
-import s from './styles';
+import styleParser from './core/styleParser';
+import styles from './styles';
 
 // Delete me
-export const useBootnative = (customVars = {}) => {
-  return function(styles:string): object{
-    return {
-      
-    };
+export default function useBootnative (customVars:object = {}) {
+  return function(style:string){
+    return styleParser(style, styles(customVars))
   };
 }

@@ -1,11 +1,5 @@
-const vars : Vars = {
-    
+const vars = {
+    spacing:5
 }
-
-
-interface Vars {
-    
-}
-
 
 export default vars;
