@@ -15,6 +15,27 @@ export default function(customVars:object) : object{
 
     return {
 
+        /*
+
+            Border
+
+        */
+
+        //border-additive
+
+        borderTop: (size:string) => {
+            return {
+                borderTopWidth: size,
+            }
+        },
+
+
+        /*
+
+            Spacing
+
+        */
+
         //padding
         p: (scale:string = '1') => {
             validateScale(scale);

@@ -1,10 +1,10 @@
-import helpers from './helpers';
+import utilities from './utilities';
 
 
-export default function(customVars:object) : object{
+export default function(custom:any) : object{
 
     const styles : object = {
-        ...helpers(customVars),
+        ...utilities(custom.vars),
         bg: function (color:string):object {
             return {
                 backgroundColor: color

@@ -1,10 +1,10 @@
 import vars from '../src/core/vars';
-import helpers from '../src/helpers';
+import utilities from '../src/utilities';
 const {spacing} = vars;
 
-const styles:any = helpers({});
+const styles:any = utilities({});
 
-describe('helpers', () => {
+describe('spacing', () => {
   it('margin scale', () => {
     expect(styles.m('4')).toStrictEqual({margin:spacing * 4});
     expect(styles.mt('2')).toStrictEqual({marginTop:spacing * 2});
