@@ -17,58 +17,61 @@ export default function (customVars: object): object {
 
         /*
 
-            Border
+            Borders
 
         */
 
-        //border-additive
-
-        border: (size: string = '1', color: string = 'black', style: string = 'solid') => {
-            if (size === '0') {
-                return {
-                    border: "none"
-                }
-            }
+        border: (size: string = '1', color: string = 'black', style: string = 'solid', radius: string = '0.0001') => {
             return {
-                border: size + "px" + " " + style + " " + color
+                borderWidth: parseInt(size),
+                borderStyle: style,
+                borderColor: color,
+                borderRadius: parseFloat(radius)
             }
         },
 
-        borderTop: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+        borderTop: (size: string = '1', color: string = 'black') => {
             return {
-                borderTop: size + "px" + " " + style + " " + color
+                borderTopWidth: parseInt(size),
+                borderTopColor: color
             }
         },
 
-        borderRight: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+        borderRight: (size: string = '1', color: string = 'black') => {
             return {
-                borderRight: size + "px" + " " + style + " " + color
+                borderRightWidth: parseInt(size),
+                borderRightColor: color
             }
         },
 
-        borderBottom: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+        borderBottom: (size: string = '1', color: string = 'black') => {
             return {
-                borderBottom: size + "px" + " " + style + " " + color
+                borderBottomWidth: parseInt(size),
+                borderBottomColor: color
             }
         },
 
-        borderLeft: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+        borderLeft: (size: string = '1', color: string = 'black') => {
             return {
-                borderLeft: size + "px" + " " + style + " " + color
+                borderLeftWidth: parseInt(size),
+                borderLeftColor: color
             }
         },
 
-        borderY: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+        borderY: (size: string = '1', color: string = 'black') => {
             return {
-                borderTop: size + "px" + " " + style + " " + color,
-                borderBottom: size + "px" + " " + style + " " + color
+                borderTopWidth: parseInt(size),
+                borderTopColor: color,
+                borderBottomWidth: parseInt(size),
+                borderBottomColor: color
             }
         },
-
-        borderX: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+        borderX: (size: string = '1', color: string = 'black') => {
             return {
-                borderRight: size + "px" + " " + style + " " + color,
-                borderLeft: size + "px" + " " + style + " " + color
+                borderLeftWidth: parseInt(size),
+                borderLeftColor: color,
+                borderRightWidth: parseInt(size),
+                borderRightColor: color
             }
         },
 
