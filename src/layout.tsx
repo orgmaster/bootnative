@@ -29,7 +29,8 @@ export default function(customVars:object) : object{
             let props:{[key:string]:any} = {
                 marginTop: container_mt,
                 flex: 1,
-                marginHorizontal: 'auto',
+                marginLeft: 'auto',
+                marginRight: 'auto'
             }
             if(width <= _window.width) props.width = width;
             return props;

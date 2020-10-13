@@ -43,7 +43,8 @@ describe('Layout: container', () => {
     let props = {
         flex: 1,
         marginTop: 0,
-        marginHorizontal:'auto',
+        marginLeft: 'auto',
+        marginRight: 'auto',
         width: _window.width
     }
     expect(bn('container')).toStrictEqual({...props, width:calculeWidth()});
