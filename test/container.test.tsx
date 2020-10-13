@@ -5,8 +5,8 @@ const customVars = {
   spacing:10
 }
 
-describe('styleParser', () => {
-  it('return javascript object', () => {
+describe('Layout: container', () => {
+  it('return correct width', () => {
     const bn = useBootnative(customVars);
     
     const calculeWidth = (size:string|null = null) => {
