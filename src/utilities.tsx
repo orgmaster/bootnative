@@ -1,15 +1,15 @@
 import useCustomVars from './core/useCustomVars';
 
-function validateScale(scale:string){
-    if(scale != 'auto' && parseInt(scale) < 1) throw new Error('The min scale is: 1');
+function validateScale(scale: string) {
+    if (scale != 'auto' && parseInt(scale) < 1) throw new Error('The min scale is: 1');
 }
 
 
-export default function(customVars:object) : object{
-    const {spacing} = useCustomVars(customVars);
+export default function (customVars: object): object {
+    const { spacing } = useCustomVars(customVars);
 
 
-    function scalar(scale:string){
+    function scalar(scale: string) {
         return scale == 'auto' ? scale : spacing * parseInt(scale);
     }
 
@@ -23,12 +23,54 @@ export default function(customVars:object) : object{
 
         //border-additive
 
-        borderTop: (size:string) => {
+        border: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+            if (size === '0') {
+                return {
+                    border: "none"
+                }
+            }
             return {
-                borderTopWidth: size,
+                border: size + "px" + " " + style + " " + color
             }
         },
 
+        borderTop: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+            return {
+                borderTop: size + "px" + " " + style + " " + color
+            }
+        },
+
+        borderRight: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+            return {
+                borderRight: size + "px" + " " + style + " " + color
+            }
+        },
+
+        borderBottom: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+            return {
+                borderBottom: size + "px" + " " + style + " " + color
+            }
+        },
+
+        borderLeft: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+            return {
+                borderLeft: size + "px" + " " + style + " " + color
+            }
+        },
+
+        borderY: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+            return {
+                borderTop: size + "px" + " " + style + " " + color,
+                borderBottom: size + "px" + " " + style + " " + color
+            }
+        },
+
+        borderX: (size: string = '1', color: string = 'black', style: string = 'solid') => {
+            return {
+                borderRight: size + "px" + " " + style + " " + color,
+                borderLeft: size + "px" + " " + style + " " + color
+            }
+        },
 
         /*
 
@@ -37,43 +79,43 @@ export default function(customVars:object) : object{
         */
 
         //padding
-        p: (scale:string = '1') => {
+        p: (scale: string = '1') => {
             validateScale(scale);
             return {
                 padding: scalar(scale)
             }
         },
-        pb: (scale:string = '1') => {
+        pb: (scale: string = '1') => {
             validateScale(scale);
             return {
                 paddingBottom: scalar(scale)
             }
         },
-        pt: (scale:string = '1') => {
+        pt: (scale: string = '1') => {
             validateScale(scale);
             return {
                 paddingTop: scalar(scale)
             }
         },
-        py: (scale:string = '1') => {
+        py: (scale: string = '1') => {
             validateScale(scale);
             return {
                 paddingVertical: scalar(scale)
             }
         },
-        pl: (scale:string = '1') => {
+        pl: (scale: string = '1') => {
             validateScale(scale);
             return {
                 paddingLeft: scalar(scale)
             }
         },
-        pr: (scale:string = '1') => {
+        pr: (scale: string = '1') => {
             validateScale(scale);
             return {
                 paddingRight: scalar(scale)
             }
         },
-        px: (scale:string = '1') => {
+        px: (scale: string = '1') => {
             validateScale(scale);
             return {
                 paddingHorizontal: scalar(scale)
@@ -81,43 +123,43 @@ export default function(customVars:object) : object{
         },
 
         //margin
-        m: (scale:string = '1') => {
+        m: (scale: string = '1') => {
             validateScale(scale);
             return {
                 margin: scalar(scale)
             }
         },
-        mb: (scale:string = '1') => {
+        mb: (scale: string = '1') => {
             validateScale(scale);
             return {
                 marginBottom: scalar(scale)
             }
         },
-        mt: (scale:string = '1') => {
+        mt: (scale: string = '1') => {
             validateScale(scale);
             return {
                 marginTop: scalar(scale)
             }
         },
-        my: (scale:string = '1') => {
+        my: (scale: string = '1') => {
             validateScale(scale);
             return {
                 marginVertical: scalar(scale)
             }
         },
-        ml: (scale:string = '1') => {
+        ml: (scale: string = '1') => {
             validateScale(scale);
             return {
                 marginLeft: scalar(scale)
             }
         },
-        mr: (scale:string = '1') => {
+        mr: (scale: string = '1') => {
             validateScale(scale);
             return {
                 marginRight: scalar(scale)
             }
         },
-        mx: (scale:string = '1') => {
+        mx: (scale: string = '1') => {
             validateScale(scale);
             return {
                 marginHorizontal: scalar(scale)
