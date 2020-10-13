@@ -13,5 +13,7 @@ describe('styleParser', () => {
     const bn = useBootnative(customVars);
     expect(bn('mb-1')).toStrictEqual({marginBottom:1 * spacing});
     expect(bn('mb-1 mt-2')).toStrictEqual({marginBottom:1 * spacing, marginTop:2 * spacing});
+    expect(bn('functionProp mt-2')).toStrictEqual({test:'functionProps ok', marginTop:2 * spacing});
+    expect(bn('objectProp mt-2')).toStrictEqual({test:'objectProps ok', marginTop:2 * spacing});
   });
 });

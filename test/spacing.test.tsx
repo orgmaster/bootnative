@@ -2,6 +2,7 @@ import vars from '../src/core/vars';
 import utilities from '../src/utilities';
 const {spacing} = vars;
 
+
 const styles:any = utilities({});
 
 describe('spacing', () => {
