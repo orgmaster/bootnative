@@ -50,7 +50,6 @@ export default function(customVars:object) : object{
         },
 
         col:(scale:string) => {
-            console.log(scale, ((100/12)*parseInt(scale))+'%')
             return {
                 width: ((100/12)*parseInt(scale))+'%'
             }
