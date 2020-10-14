@@ -75,11 +75,121 @@ export default function (customVars: object): object {
             }
         },
 
+        // border color
+        borderColor: (color: string, position: string = '') => {
+            switch (position) {
+                case "top": {
+                    return {
+                        borderTopColor: color
+                    }
+                }
+                // no funciona (native bug)
+                case "right": {
+                    return {
+                        borderRightColor: color
+                    }
+                }
+                case "bottom": {
+                    return {
+                        borderBottomColor: color
+                    }
+                }
+                // no funciona (native bug)
+                case "left": {
+                    return {
+                        borderLeftColor: color
+                    }
+                }
+                case "y": {
+                    return {
+                        borderTopColor: color,
+                        borderBottomColor: color
+                    }
+                }
+                case "x": {
+                    return {
+                        borderRightColor: color,
+                        borderLeftColor: color
+                    }
+                }
+                default: {
+                    return {
+                        borderColor: color
+                    }
+                }
+            }
+        },
+
+        // border radius    
+
+        borderRadius: (radius: string, position: string = '', alternativePosition: string = '') => {
+            if (!alternativePosition || (alternativePosition !== "left" && alternativePosition !== "right")) {
+                switch (position) {
+                    case "top": {
+                        return {
+                            borderTopRightRadius: radius,
+                            borderTopLeftRadius: radius
+                        }
+                    }
+                    case "right": {
+                        return {
+                            borderTopRightRadius: radius,
+                            borderBottomRightRadius: radius
+                        }
+                    }
+                    case "bottom": {
+                        return {
+                            borderBottomRightRadius: radius,
+                            borderBottomLeftRadius: radius
+                        }
+                    }
+                    case "left": {
+                        return {
+                            borderTopLeftRadius: radius,
+                            borderBottomLeftRadius: radius
+                        }
+                    }
+                    default: {
+                        return {
+                            borderRadius: radius
+                        }
+                    }
+                }
+            }
+            else {
+                switch (position + "-" + alternativePosition) {
+                    case "top-right": {
+                        return {
+                            borderTopRightRadius: radius
+                        }
+                    }
+                    case "top-left": {
+                        return {
+                            borderTopLeftRadius: radius
+                        }
+                    }
+                    case "bottom-right": {
+                        return {
+                            borderBottomRightRadius: radius
+                        }
+                    }
+                    case "bottom-left": {
+                        return {
+                            borderBottomLeftRadius: radius
+                        }
+                    }
+                    default: {
+                        return {}
+                    }
+                }
+            }
+        },
+
         /*
 
-            Spacing
+        Spacing
 
-        */
+    */
 
         //padding
         p: (scale: string = '1') => {
