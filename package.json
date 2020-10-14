@@ -22,12 +22,6 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "name": "bootnative",
   "author": "alantoledo007",
   "repository": {
@@ -57,7 +51,6 @@
     "@size-limit/preset-small-lib": "^4.6.0",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
-    "husky": "^4.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "size-limit": "^4.6.0",
