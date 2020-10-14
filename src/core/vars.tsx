@@ -2,7 +2,6 @@ import { Dimensions } from 'react-native';
 
 
 const dimensions = Dimensions.get('window');
-console.log(dimensions.width);
 //const dimensions:{[key:string]:any} = {width: 1024, heigt:0};
 
 export const _window = dimensions;

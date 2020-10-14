@@ -13,7 +13,7 @@ export default function(customVars:object) : object{
 
         /*
 
-            Border
+            Container
 
         */
 
@@ -34,6 +34,26 @@ export default function(customVars:object) : object{
             }
             if(width <= _window.width) props.width = width;
             return props;
+        },
+
+        /*
+
+            Grid
+
+        */
+
+        row:{
+            display:'flex',
+            flexDirection:'row',
+            width:'100%',
+            flexWrap:'wrap'
+        },
+
+        col:(scale:string) => {
+            console.log(scale, ((100/12)*parseInt(scale))+'%')
+            return {
+                width: ((100/12)*parseInt(scale))+'%'
+            }
         },
     }
 };
