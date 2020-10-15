@@ -17,6 +17,39 @@ export default function (customVars: object): object {
 
         /*
 
+            Colors
+
+        */
+
+        text: (color: string = '', position: string = '') => {
+            const positions: string[] = ['center', 'left', 'right', 'justify']
+
+            if (positions.find(position => position === color)) {
+                return {
+                    textAlign: color
+                }
+            }
+
+            if (!position) {
+                return {
+                    color: color,
+                }
+            }
+
+            return {
+                color: color,
+                textAlign: position
+            }
+        },
+
+        bg: (color: string = '') => {
+            return {
+                backgroundColor: color
+            }
+        },
+
+        /*
+
             Borders
 
         */
