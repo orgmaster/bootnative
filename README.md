@@ -81,6 +81,32 @@ const Spacing = () => {
   )
 }
 
+
+/*
+
+width-[string||float], maxWidth-[integer], minWidth-[integer]
+
+*/
+const Sizing = () => {
+  const bn = useBootnative();
+  return (
+    <View>
+      <View style={bn('width-200')}>
+        {/* 200px */}
+      </View>
+      <View style={bn('width-50%')}>
+        {/* 50% of its parent component */}
+      </View>
+      <View style={bn('width-100% maxWidth-500')}>
+        {/* 100%, max 500px */}
+      </View>
+      <View style={bn('width-30% minWidth-50')}>
+        {/* 30%, min 50px */}
+      </View>
+    </View>
+  )
+}
+
 ```
 
 
