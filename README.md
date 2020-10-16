@@ -22,7 +22,7 @@
 
 <h2 id="documentation">Documentation</h2>
 
-``` javascript
+```javascript
 
 import React from 'react';
 import {View, Text} from 'react-native';
@@ -78,6 +78,66 @@ const Spacing = () => {
       <Text style={bn('m-2 mb-7 ml-3 pr-3 pt-5')}>text 2</Text>
       <Text>text 3</Text>
     </View>
+  )
+}
+
+/*
+
+text-[position]
+text-[color]
+bg-[color]
+
+*/
+
+const Text = () => {
+  const bn = useBootnative();
+  return (
+      <View style={bn('bg-yellow')}>
+        <Text style={bn('text-center' 'text-red')}>
+            {/*
+                text centered, color red, background color yellow
+            */}
+        <Text>
+      </View>
+  )
+}
+
+/*
+
+h1
+h2
+h3
+h4
+h5
+h6
+s
+u
+em
+bold
+mark-[color]
+
+*/
+
+const Typography = () => {
+  const bn = useBootnative();
+  return (
+      <View>
+        <Text style={bn('h3' 'mark')}>
+            {/*
+                h3, marked yellow
+            */}
+        <Text>
+        <Text style={bn('em' 'u')}>
+            {/*
+                italic style, underlined
+            */}
+        <Text>
+        <Text style={bn('bold' 's' 'mark-blue')}>
+            {/*
+                weight bold, line through, marked blue
+            */}
+        <Text>
+      </View>
   )
 }
 
@@ -150,21 +210,18 @@ const Borders = () => {
 
 ```
 
-
 <h2 id="customization">Customization</h2>
 
-``` javascript
-
+```javascript
 const bn = useBootnative({
-  vars:{
+  vars: {
     //Change default values
-    spacing:5, //margins & pading (scale prop)
-    container_mt:0 //util for toolkit
+    spacing: 5, //margins & pading (scale prop)
+    container_mt: 0, //util for toolkit
   },
-  colors:{
+  colors: {
     //example
-    danger: 'red'
-  }
+    danger: "red",
+  },
 });
-
 ```
