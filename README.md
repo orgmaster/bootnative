@@ -22,7 +22,7 @@
 
 <h2 id="documentation">Documentation</h2>
 
-```javascript
+``` javascript
 
 import React from 'react';
 import {View, Text} from 'react-native';
@@ -104,17 +104,8 @@ const Text = () => {
 
 /*
 
-h1
-h2
-h3
-h4
-h5
-h6
-s
-u
-em
-bold
-mark-[color]
+Headers: h1, h2, h3, h4, h5, h6
+Fonts: s, u, em, bold, mark-[color]
 
 */
 
