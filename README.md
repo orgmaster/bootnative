@@ -84,7 +84,7 @@ const Spacing = () => {
 
 /*
 
-width-[string||float], maxWidth-[integer], minWidth-[integer]
+width-[string||float], maxWidth-[float], minWidth-[float]
 
 */
 const Sizing = () => {
@@ -103,6 +103,54 @@ const Sizing = () => {
       <View style={bn('width-30% minWidth-50')}>
         {/* 30%, min 50px */}
       </View>
+    </View>
+  )
+}
+
+
+/*
+
+border-[size:float = 1]-[color=black]-[style=solid]-[radius:float=0.0001]
+///WARNING: On android need a radius for change border style (react-native bug)///
+
+borderLeft-[size:integer]-[color:string]
+borderRight-[size:integer]-[color:string]
+borderTop-[size:integer]-[color:string]
+borderBottom-[size:integer]-[color:string]
+borderX-[size:integer]-[color:string]
+borderY-[size:integer]-[color:string]
+
+borderStyle-[string]
+
+borderRadius-[integer]-[position1]-[position2] //posible positions: left,right,top,bottom
+//if you provide position2, the border radius will go apply on corner.
+
+borderSize-[float]-[position:string] //posible positions: left,right,top,bottom
+borderColor-[string]-[position:string] //posible positions: left,right,top,bottom
+*/
+
+const Borders = () => {
+  const bn = useBootnative();
+  return (
+    <View>
+      <View style={bn('border-1-red-solid-5')}></View>
+      <View style={bn('borderRadius-30 borderStyle-dashed borderColor-#000')}></View>
+      <View style={bn('borderColor-red borderColor-pink-bottom')}></View>
+      <View style={bn('borderRadius-5-top-left borderRadius-20-bottom')}></View>
+    </View>
+  )
+}
+
+
+
+const Colors = () => {
+  const bn = useBootnative();
+  return (
+    <View>
+      <View style={bn('border-1-red-solid-5')}></View>
+      <View style={bn('borderRadius-30 borderStyle-dashed borderColor-#000')}></View>
+      <View style={bn('borderColor-red borderColor-pink-bottom')}></View>
+      <View style={bn('borderRadius-5-top-left borderRadius-20-bottom')}></View>
     </View>
   )
 }
