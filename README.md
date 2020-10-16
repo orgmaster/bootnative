@@ -81,67 +81,6 @@ const Spacing = () => {
   )
 }
 
-/*
-
-text-[position]
-text-[color]
-bg-[color]
-
-*/
-
-const Text = () => {
-  const bn = useBootnative();
-  return (
-      <View style={bn('bg-yellow')}>
-        <Text style={bn('text-center' 'text-red')}>
-            {/*
-                text centered, color red, background color yellow
-            */}
-        <Text>
-      </View>
-  )
-}
-
-/*
-
-h1
-h2
-h3
-h4
-h5
-h6
-s
-u
-em
-bold
-mark-[color]
-
-*/
-
-const Typography = () => {
-  const bn = useBootnative();
-  return (
-      <View>
-        <Text style={bn('h3' 'mark')}>
-            {/*
-                h3, marked yellow
-            */}
-        <Text>
-        <Text style={bn('em' 'u')}>
-            {/*
-                italic style, underlined
-            */}
-        <Text>
-        <Text style={bn('bold' 's' 'mark-blue')}>
-            {/*
-                weight bold, line through, marked blue
-            */}
-        <Text>
-      </View>
-  )
-}
-
-
 
 /*
 
@@ -215,7 +154,66 @@ const Colors = () => {
   )
 }
 
-documentation
+/*
+########### Typography ##########
+
+text-[position]
+text-[color]
+bg-[color]
+
+*/
+
+const Text = () => {
+  const bn = useBootnative();
+  return (
+      <View style={bn('bg-yellow')}>
+        <Text style={bn('text-center' 'text-red')}>
+            {/*
+                text centered, color red, background color yellow
+            */}
+        <Text>
+      </View>
+  )
+}
+
+/*
+
+h1
+h2
+h3
+h4
+h5
+h6
+s
+u
+em
+bold
+mark-[color]
+
+*/
+
+const Typography = () => {
+  const bn = useBootnative();
+  return (
+      <View>
+        <Text style={bn('h3' 'mark')}>
+            {/*
+                h3, marked yellow
+            */}
+        <Text>
+        <Text style={bn('em' 'u')}>
+            {/*
+                italic style, underlined
+            */}
+        <Text>
+        <Text style={bn('bold' 's' 'mark-blue')}>
+            {/*
+                weight bold, line through, marked blue
+            */}
+        <Text>
+      </View>
+  )
+}
 ```
 
 <h2 id="customization">Customization</h2>
