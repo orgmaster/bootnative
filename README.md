@@ -107,6 +107,47 @@ const Sizing = () => {
   )
 }
 
+/*
+
+border-[width]-[color]-[style]-[radius]
+borderSize-[width]
+borderColor-[color]
+borderRadius-[radius]
+borderStyle-[style]
+
+*/
+const Borders = () => {
+  const bn = useBootnative();
+  return (
+    <View>
+      <View style={bn('border-5-red-dotted-3')}>
+        <Text>
+            {/*
+                Width 5, red, dotted, radius 3
+            */}
+        <Text>
+      </View>
+      <View style={bn('border borderColor-blue-top')}>
+        <Text>
+            {/*
+                Right, bottom, left: Width 1, black, solid
+                Top: Width 1, blue, solid
+            */}
+        <Text>
+      </View>
+      <View style={bn('border-3-green borderRadius-5-top borderRadius-10-bottom-right')}>
+        <Text>
+            {/*
+                Border: Width 3, green, solid
+                TopLeftRadius & TopRightRadius: 5
+                BottomRightRadius: 10
+            */}
+        <Text>
+      </View>
+    </View>
+  )
+}
+
 ```
 
 
