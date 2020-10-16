@@ -109,7 +109,12 @@ export default function (customVars: object): object {
         },
 
         // border color
-        borderColor: (color: string, position: string = '') => {
+        borderColor: (color: string, position: string) => {
+            if (!position) {
+                return {
+                    borderColor: color
+                }
+            }
             switch (position) {
                 case "top": {
                     return {
@@ -153,38 +158,88 @@ export default function (customVars: object): object {
             }
         },
 
-        // border radius    
+        // border size
+        borderSize: (size: string, position: string) => {
+            const sizeInt: number = parseInt(size)
+            if (!position) {
+                return {
+                    borderWidth: sizeInt
+                }
+            }
+            switch (position) {
+                case "top": {
+                    return {
+                        borderTopWidth: sizeInt
+                    }
+                }
+                case "right": {
+                    return {
+                        borderRightWidth: sizeInt
+                    }
+                }
+                case "bottom": {
+                    return {
+                        borderBottomWidth: sizeInt
+                    }
+                }
+                case "left": {
+                    return {
+                        borderLeftWidth: sizeInt
+                    }
+                }
+                default: {
+                    return {
+                        borderWidth: sizeInt
+                    }
+                }
+            }
 
-        borderRadius: (radius: string, position: string = '', alternativePosition: string = '') => {
+        },
+
+        // border style
+        borderStyle: (style: string) => {
+            return {
+                borderStyle: style
+            }
+        },
+
+        // border radius    
+        borderRadius: (radius: string, position: string, alternativePosition: string) => {
+            const radiusInt: number = parseInt(radius)
+            if (!position) {
+                return {
+                    borderRadius: radiusInt
+                }
+            }
             if (!alternativePosition || (alternativePosition !== "left" && alternativePosition !== "right")) {
                 switch (position) {
                     case "top": {
                         return {
-                            borderTopRightRadius: radius,
-                            borderTopLeftRadius: radius
+                            borderTopRightRadius: radiusInt,
+                            borderTopLeftRadius: radiusInt
                         }
                     }
                     case "right": {
                         return {
-                            borderTopRightRadius: radius,
-                            borderBottomRightRadius: radius
+                            borderTopRightRadius: radiusInt,
+                            borderBottomRightRadius: radiusInt
                         }
                     }
                     case "bottom": {
                         return {
-                            borderBottomRightRadius: radius,
-                            borderBottomLeftRadius: radius
+                            borderBottomRightRadius: radiusInt,
+                            borderBottomLeftRadius: radiusInt
                         }
                     }
                     case "left": {
                         return {
-                            borderTopLeftRadius: radius,
-                            borderBottomLeftRadius: radius
+                            borderTopLeftRadius: radiusInt,
+                            borderBottomLeftRadius: radiusInt
                         }
                     }
                     default: {
                         return {
-                            borderRadius: radius
+                            borderRadius: radiusInt
                         }
                     }
                 }
@@ -193,22 +248,22 @@ export default function (customVars: object): object {
                 switch (position + "-" + alternativePosition) {
                     case "top-right": {
                         return {
-                            borderTopRightRadius: radius
+                            borderTopRightRadius: radiusInt
                         }
                     }
                     case "top-left": {
                         return {
-                            borderTopLeftRadius: radius
+                            borderTopLeftRadius: radiusInt
                         }
                     }
                     case "bottom-right": {
                         return {
-                            borderBottomRightRadius: radius
+                            borderBottomRightRadius: radiusInt
                         }
                     }
                     case "bottom-left": {
                         return {
-                            borderBottomLeftRadius: radius
+                            borderBottomLeftRadius: radiusInt
                         }
                     }
                     default: {
