@@ -1,4 +1,5 @@
 import useCustomVars from './core/useCustomVars';
+import colors from './core/colors';
 
 function validateScale(scale: string) {
     if (scale != 'auto' && parseInt(scale) < 1) throw new Error('The min scale is: 1');
@@ -13,6 +14,8 @@ export default function (customVars: object): object {
         return scale == 'auto' ? scale : spacing * parseInt(scale);
     }
 
+    const positions: string[] = ['center', 'left', 'right', 'justify'];
+    
     return {
 
         /*
@@ -21,30 +24,18 @@ export default function (customVars: object): object {
 
         */
 
-        text: (color: string = '', position: string = '') => {
-            const positions: string[] = ['center', 'left', 'right', 'justify']
+        text: (value: string) => {
 
-            if (positions.find(position => position === color)) {
-                return {
-                    textAlign: color
-                }
-            }
-
-            if (!position) {
-                return {
-                    color: color,
-                }
-            }
-
-            return {
-                color: color,
-                textAlign: position
+            if(positions.includes(value)){
+                return{textAlign:value}
+            }else{
+                return{color:colors[value] || value}
             }
         },
 
-        bg: (color: string = '') => {
+        bg: (color: string) => {
             return {
-                backgroundColor: color
+                backgroundColor: colors[color] || color
             }
         },
 
@@ -58,7 +49,7 @@ export default function (customVars: object): object {
             return {
                 borderWidth: parseInt(size),
                 borderStyle: style,
-                borderColor: color,
+                borderColor: colors[color] || color,
                 borderRadius: parseFloat(radius)
             }
         },
@@ -66,45 +57,45 @@ export default function (customVars: object): object {
         borderTop: (size: string = '1', color: string = 'black') => {
             return {
                 borderTopWidth: parseInt(size),
-                borderTopColor: color
+                borderTopColor: colors[color] || color
             }
         },
 
         borderRight: (size: string = '1', color: string = 'black') => {
             return {
                 borderRightWidth: parseInt(size),
-                borderRightColor: color
+                borderRightColor: colors[color] || color
             }
         },
 
         borderBottom: (size: string = '1', color: string = 'black') => {
             return {
                 borderBottomWidth: parseInt(size),
-                borderBottomColor: color
+                borderBottomColor: colors[color] || color
             }
         },
 
         borderLeft: (size: string = '1', color: string = 'black') => {
             return {
                 borderLeftWidth: parseInt(size),
-                borderLeftColor: color
+                borderLeftColor: colors[color] || color
             }
         },
 
         borderY: (size: string = '1', color: string = 'black') => {
             return {
                 borderTopWidth: parseInt(size),
-                borderTopColor: color,
+                borderTopColor: colors[color] || color,
                 borderBottomWidth: parseInt(size),
-                borderBottomColor: color
+                borderBottomColor: colors[color] || color
             }
         },
         borderX: (size: string = '1', color: string = 'black') => {
             return {
                 borderLeftWidth: parseInt(size),
-                borderLeftColor: color,
+                borderLeftColor: colors[color] || color,
                 borderRightWidth: parseInt(size),
-                borderRightColor: color
+                borderRightColor: colors[color] || color
             }
         },
 
@@ -112,47 +103,47 @@ export default function (customVars: object): object {
         borderColor: (color: string, position: string) => {
             if (!position) {
                 return {
-                    borderColor: color
+                    borderColor: colors[color] || color
                 }
             }
             switch (position) {
                 case "top": {
                     return {
-                        borderTopColor: color
+                        borderTopColor: colors[color] || color
                     }
                 }
                 // no funciona (native bug)
                 case "right": {
                     return {
-                        borderRightColor: color
+                        borderRightColor: colors[color] || color
                     }
                 }
                 case "bottom": {
                     return {
-                        borderBottomColor: color
+                        borderBottomColor: colors[color] || color
                     }
                 }
                 // no funciona (native bug)
                 case "left": {
                     return {
-                        borderLeftColor: color
+                        borderLeftColor: colors[color] || color
                     }
                 }
                 case "y": {
                     return {
-                        borderTopColor: color,
-                        borderBottomColor: color
+                        borderTopColor: colors[color] || color,
+                        borderBottomColor: colors[color] || color
                     }
                 }
                 case "x": {
                     return {
-                        borderRightColor: color,
-                        borderLeftColor: color
+                        borderRightColor: colors[color] || color,
+                        borderLeftColor: colors[color] || color
                     }
                 }
                 default: {
                     return {
-                        borderColor: color
+                        borderColor: colors[color] || color
                     }
                 }
             }

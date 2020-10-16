@@ -1,4 +1,4 @@
-const colors = {
+const colors:{[key:string]:any} = {
     primary: '#057AFC',
     secondary: '#6C757D',
     success: '#51A846',
