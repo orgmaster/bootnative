@@ -13,17 +13,6 @@ export default function(custom:any) : object{
             return {
                 test:'functionProps ok'
             }
-        },
-
-        bg: function (color:string):object {
-            return {
-                backgroundColor: color
-            }
-        },
-        btn: function (color:string) {
-            return {
-                backgroundColor: color
-            }
         }
     }
     

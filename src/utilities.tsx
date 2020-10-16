@@ -17,6 +17,29 @@ export default function (customVars: object): object {
     const positions: string[] = ['center', 'left', 'right', 'justify'];
     
     return {
+        /*
+
+            Sizing
+
+        */
+
+        width:(value:string) => {
+            return {
+                width:value[value.length-1] === '%' ? value : parseFloat(value)
+            }
+        },
+
+        maxWidth:(value:string) => {
+            return {
+                maxWidth:parseFloat(value)
+            }
+        },
+
+        minWidth:(value:string) => {
+            return {
+                minWidth:parseFloat(value)
+            }
+        },
 
         /*
 

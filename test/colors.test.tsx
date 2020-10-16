@@ -3,7 +3,10 @@ import useBootnative from '../src';
 describe('colors', () => {
     it('bg', () => {
         const bn = useBootnative();
-        expect(bn('bg-red')).toStrictEqual({ backgroundColor: "red" });
+        expect(bn('bg-red')).toStrictEqual({ backgroundColor: "#DD4145" });
+        expect(bn('bg-primary')).toStrictEqual({ backgroundColor: "#057AFC" });
+        expect(bn('bg-#fff')).toStrictEqual({ backgroundColor: "#fff" });
+        expect(bn('bg-black')).toStrictEqual({ backgroundColor: "black" });
     });
     it('text', () => {
         const bn = useBootnative();
