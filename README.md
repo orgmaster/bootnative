@@ -167,7 +167,7 @@ const Text = () => {
   const bn = useBootnative();
   return (
       <View style={bn('bg-yellow')}>
-        <Text style={bn('text-center' 'text-red')}>
+        <Text style={bn('text-center text-red')}>
             {/*
                 text centered, color red, background color yellow
             */}
@@ -196,17 +196,17 @@ const Typography = () => {
   const bn = useBootnative();
   return (
       <View>
-        <Text style={bn('h3' 'mark')}>
+        <Text style={bn('h3 mark')}>
             {/*
                 h3, marked yellow
             */}
         <Text>
-        <Text style={bn('em' 'u')}>
+        <Text style={bn('em u')}>
             {/*
                 italic style, underlined
             */}
         <Text>
-        <Text style={bn('bold' 's' 'mark-blue')}>
+        <Text style={bn('bold s mark-blue')}>
             {/*
                 weight bold, line through, marked blue
             */}
