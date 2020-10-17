@@ -1,20 +1,22 @@
-import {_window, gridArray, grid} from './vars';
+'use strict';
+const legacy = require('./vars');
 
-function styleParser(style:string, styles:{[key:string]:any}){
+function styleParser(style, styles, dimensions){
+    const {_window, gridArray, grid} = legacy(dimensions);
     let arr = style.split(' ');
 
     //grid case
     if(!!arr.find(item => item.split('-')[0] === 'col') === true){
         let cols = arr.filter(item => item.split('-')[0] === 'col');
         arr = arr.filter(item => item.split('-')[0] !== 'col');
-        let scales:{[key:string]:any} = {}
+        let scales = {}
         let grids = cols.map(item => {
             let split = item.split('-');
             let size = split.length === 3 ? split[2] : 'xs';
             scales = {...scales, [size]:split[1] }
             return {...grid[size],size};
         });
-        grids.sort((a:any,b:any) => {
+        grids.sort((a,b) => {
             return a.min - b.min;
         });
         let sizes = grids.map(item => {
@@ -33,7 +35,7 @@ function styleParser(style:string, styles:{[key:string]:any}){
     }
 
     //legacy
-    let box:{[key:string]:any} = {};
+    let box = {};
     for (let i = 0; i < arr.length; i++) {
         let custom = arr[i].split('-');
         let prop = custom[0];
@@ -49,7 +51,7 @@ function styleParser(style:string, styles:{[key:string]:any}){
             }
         }else{
             if(styles[prop] !== undefined){
-                box= {...typeof styles[prop] === 'function' ? styles[prop]() : styles[prop]}
+                box= {...box,...typeof styles[prop] === 'function' ? styles[prop]() : styles[prop]}
             }
         }
 
@@ -58,4 +60,4 @@ function styleParser(style:string, styles:{[key:string]:any}){
     return box;
 }
 
-export default styleParser;
+module.exports = styleParser;

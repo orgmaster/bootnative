@@ -1,5 +1,9 @@
-import useBootnative from '../src';
-import { _window } from '../src/core/vars';
+'use strict';
+
+const useBootnative = require('../src');
+const legacy = require('../src/core/vars');
+
+const { _window } = legacy();
 
 const customVars = {
   spacing:10
@@ -9,7 +13,7 @@ describe('Layout: container', () => {
   it('return correct width', () => {
     const bn = useBootnative(customVars);
     
-    const calculeWidth = (size:string|null = null) => {
+    const calculeWidth = (size = null) => {
 
         if(_window.width >= 1200 && size === null) return 1140;
         if(_window.width >= 1200 && size === 'sm') return 1140; 

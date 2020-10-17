@@ -1,7 +1,9 @@
+'use strict';
+
 //import * as React from 'react';
 //import * as ReactDOM from 'react-dom';
-import useBootnative from '../src';
-import vars from '../src/core/useCustomVars';
+const useBootnative = require('../src');
+const vars = require('../src/core/useCustomVars');
 
 const customVars = {
   spacing:10

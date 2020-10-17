@@ -1,12 +1,16 @@
-import useCustomVars from './core/useCustomVars';
-import {_window, container,gridArray, grid} from './core/vars';
+'use strict';
 
-// function validateScale(scale:string){
+const useCustomVars = require('./core/useCustomVars');
+const vars = require('./core/vars');
+
+// function validateScale(scale){
 //     if(scale != 'auto' && parseInt(scale) < 1) throw new Error('The min scale is: 1');
 // }
 
 
-export default function(customVars:object) : object{
+module.exports = function(dimensions, customVars){
+    const {_window, container,gridArray, grid} = vars(dimensions);
+    
     const {container_mt} = useCustomVars(customVars);
 
     return {
@@ -17,8 +21,8 @@ export default function(customVars:object) : object{
 
         */
 
-        container:(size:string = 'sm') => {
-            let deviceSize:any = gridArray.find(item => item.min <= _window.width && item.max >= _window.width);
+        container:(size = 'sm') => {
+            let deviceSize = gridArray.find(item => item.min <= _window.width && item.max >= _window.width);
             let containerSize = grid[size];
             let width = _window.width;
             if(size !== 'fluid'){
@@ -26,7 +30,7 @@ export default function(customVars:object) : object{
                         width = container[deviceSize.size+'_width'];
                     }
             }
-            let props:{[key:string]:any} = {
+            let props = {
                 marginTop: container_mt,
                 flex: 1,
                 marginLeft: 'auto',
@@ -49,7 +53,7 @@ export default function(customVars:object) : object{
             flexWrap:'wrap'
         },
 
-        col:(scale:string) => {
+        col:(scale) => {
             return {
                 width: ((100/12)*parseInt(scale))+'%'
             }

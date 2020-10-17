@@ -1,4 +1,6 @@
-const colors: { [key: string]: any } = {
+'use strict';
+
+const colors = {
   primary: "#057AFC",
   secondary: "#6C757D",
   success: "#51A846",
@@ -21,4 +23,6 @@ const colors: { [key: string]: any } = {
   cyan: "#3DA3B9",
 };
 
-export default colors;
+module.exports = {
+  colors
+};

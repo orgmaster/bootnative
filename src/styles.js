@@ -1,11 +1,13 @@
-import utilities from './utilities';
-import layout from './layout';
+'use strict';
 
-export default function(custom:any) : object{
+const utilities = require('./utilities');
+const layout = require('./layout');
 
-    const styles : object = {
+module.exports = function(dimensions, custom){
+
+    const styles = {
         ...utilities(custom.vars),
-        ...layout(custom.vars),
+        ...layout(dimensions, custom.vars),
         objectProp:{
             test:'objectProps ok'
         },

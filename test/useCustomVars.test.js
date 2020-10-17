@@ -1,5 +1,9 @@
-import customVars from '../src/core/useCustomVars';
-import vars from '../src/core/vars';
+'use strict';
+
+const customVars = require('../src/core/useCustomVars');
+const legacy = require('../src/core/vars');
+
+const {vars} = legacy();
 
 let cVars = customVars({});
 

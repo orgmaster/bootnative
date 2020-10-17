@@ -1,9 +1,13 @@
-import vars from '../src/core/vars';
-import utilities from '../src/utilities';
-const {spacing} = vars;
+'use strict';
+
+const legacy = require('../src/core/vars');
+const utilities = require('../src/utilities');
 
 
-const styles:any = utilities({});
+const {spacing} = legacy().vars;
+
+
+const styles = utilities({});
 
 describe('spacing', () => {
   it('margin scale', () => {

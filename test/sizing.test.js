@@ -1,4 +1,6 @@
-import useBootnative from '../src';
+'use strict';
+
+const useBootnative = require('../src');
 
 const customVars = {
   spacing:10

@@ -1,5 +1,7 @@
-import customColors from '../src/core/useCustomColors';
-import colors from '../src/core/colors';
+'use strict';
+
+const customColors = require('../src/core/useCustomColors');
+const {colors} = require('../src/core/colors');
 
 let cColors = customColors({});
 

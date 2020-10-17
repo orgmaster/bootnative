@@ -1,5 +1,9 @@
-import useBootnative from '../src';
-import { _window, gridArray, grid} from '../src/core/vars';
+'use strict';
+
+const useBootnative = require('../src');
+const legacy = require('../src/core/vars');
+
+const { _window, gridArray, grid} = legacy();
 
 const customVars = {
   spacing:10
@@ -9,10 +13,10 @@ describe('Layout: container', () => {
   it('return correct percentage', () => {
     const bn = useBootnative(customVars);
     
-    const calculate = (scales:{[key:string]:any}) => {
+    const calculate = (scales) => {
         let device = gridArray.find(item => _window.width >= item.min  && _window.width <= item.max);
-        let width:string|undefined
-        let sizes:string[] = Object.keys(scales);
+        let width
+        let sizes = Object.keys(scales);
         //xs < 576
         //sm 750
         //md 840
