@@ -14,5 +14,6 @@ describe('colors', () => {
         expect(bn('text-primary')).toStrictEqual({ color: "#057AFC" });
         expect(bn('text-#fff')).toStrictEqual({ color: "#fff" });
         expect(bn('text-center')).toStrictEqual({ textAlign: 'center' });
+        expect(bn('text-#fff text-center')).toStrictEqual({ color:'#fff', textAlign:'center' });
     });
 });

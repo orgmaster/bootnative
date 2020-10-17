@@ -45,25 +45,17 @@ function styleParser(style:string, styles:{[key:string]:any}){
                 while(custom.length){
                     func = func.bind(null, custom.shift());
                 }
-                box[prop] = func();
+                box = {...box,...func()}
             }
         }else{
             if(styles[prop] !== undefined){
-                box[prop] = typeof styles[prop] === 'function' ? styles[prop]() : styles[prop];
+                box= {...typeof styles[prop] === 'function' ? styles[prop]() : styles[prop]}
             }
         }
 
     }
-    let boxKeys = Object.keys(box);
-    let result:object = {};
-    for (let i = 0; i < boxKeys.length; i++) {
-        result = {
-            ...result,
-            ...box[boxKeys[i]]
-        };
-    }
-
-    return result;
+    
+    return box;
 }
 
 export default styleParser;
