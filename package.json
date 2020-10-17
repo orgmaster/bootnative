@@ -20,7 +20,6 @@
     "analyze": "size-limit --why"
   },
   "peerDependencies": {
-    "react": ">=16"
   },
   "name": "bootnative",
   "author": "alantoledo007",
@@ -49,10 +48,6 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.6.0",
-    "@types/react": "^16.9.51",
-    "@types/react-dom": "^16.9.8",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "size-limit": "^4.6.0",
     "tsdx": "^0.14.0",
     "tslib": "^2.0.3",
