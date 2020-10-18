@@ -6,7 +6,7 @@ const layout = require('./layout');
 module.exports = function(dimensions, custom){
 
     const styles = {
-        ...utilities(custom.vars),
+        ...utilities(custom),
         ...layout(dimensions, custom.vars),
         objectProp:{
             test:'objectProps ok'

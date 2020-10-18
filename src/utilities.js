@@ -1,15 +1,16 @@
 'use strict';
 
 const useCustomVars = require("./core/useCustomVars");
-const {colors} = require("./core/colors");
+const useCustomColors = require("./core/useCustomColors");
 
 function validateScale(scale) {
   if (scale != "auto" && parseInt(scale) < 1)
     throw new Error("The min scale is: 1");
 }
 
-module.exports = function(customVars) {
-  const { spacing } = useCustomVars(customVars);
+module.exports = function(custom) {
+  const { spacing } = useCustomVars(custom.vars);
+  const colors = useCustomColors(custom.colors);
 
   function scalar(scale) {
     return scale == "auto" ? scale : spacing * parseInt(scale);
