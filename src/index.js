@@ -3,7 +3,7 @@ const styleParser = require('./core/styleParser');
 const styles = require('./styles');
 
 
-module.exports = function useBootnative (custom) {
+module.exports = function useBootnative (custom = {}) {
     const {vars, colors} = custom;
     return function(style){
         //const { Dimensions } = require('react-native');
