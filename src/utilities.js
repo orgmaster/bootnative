@@ -25,21 +25,39 @@ module.exports = function(custom) {
 
         */
 
-    width: (value) => {
+    w: (value) => {
       return {
         width: value[value.length - 1] === "%" ? value : parseFloat(value),
       };
     },
 
-    maxWidth: (value) => {
+    wMax: (value) => {
       return {
         maxWidth: parseFloat(value),
       };
     },
 
-    minWidth: (value) => {
+    wMin: (value) => {
       return {
         minWidth: parseFloat(value),
+      };
+    },
+
+    h: (value) => {
+      return {
+        height: value[value.length - 1] === "%" ? value : parseFloat(value),
+      };
+    },
+
+    hMax: (value) => {
+      return {
+        maxHeight: parseFloat(value),
+      };
+    },
+
+    hMin: (value) => {
+      return {
+        minHeight: parseFloat(value),
       };
     },
 
@@ -397,67 +415,47 @@ module.exports = function(custom) {
     */
 
     //Headers
-    h1: () => {
-      return {
-        fontSize: "44px",
-      };
+    h1:{
+        fontSize: 44,
     },
-    h2: () => {
-      return {
-        fontSize: "38px",
-      };
+    h2:{
+        fontSize: 38,
     },
-    h3: () => {
-      return {
-        fontSize: "32px",
-      };
+    h3:{
+        fontSize: 32,
     },
-    h4: () => {
-      return {
-        fontSize: "26px",
-      };
+    h4:{
+        fontSize: 26,
     },
-    h5: () => {
-      return {
-        fontSize: "20px",
-      };
+    h5:{
+        fontSize: 20,
     },
-    h6: () => {
-      return {
-        fontSize: "14px",
-      };
+    h6:{
+        fontSize: 14,
     },
 
     //fonts
 
-    s: () => {
-      return {
-        textDecoration: "line-through",
-      };
+    s: {
+      textDecorationLine: "line-through",
     },
 
-    u: () => {
-      return {
-        textDecoration: "underline",
-      };
+    u: {
+      textDecorationLine: "underline",
     },
 
-    em: () => {
-      return {
+    em: {
         fontStyle: "italic",
-      };
     },
 
-    bold: () => {
-      return {
+    b: {
         fontWeight: "bold",
-      };
     },
 
     mark: (color = "yellow") => {
       return {
         backgroundColor: colors[color] || color,
-      };
+      }
     },
-  };
+  }
 }
